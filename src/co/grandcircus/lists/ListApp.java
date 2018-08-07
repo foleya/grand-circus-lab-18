@@ -6,8 +6,8 @@ public class ListApp {
 	public static void main(String[] args) {
 		MyList list = new MyLinkedList();
 		test(list);
-		// list = new MyArrayList();
-		// test(list);
+		list = new MyArrayList();
+		test(list);
 	}
 	
 	private static void test(MyList list) {
