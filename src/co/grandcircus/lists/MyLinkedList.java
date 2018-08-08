@@ -42,9 +42,8 @@ public class MyLinkedList implements MyList {
 			addAtEnd(data);
 		} else {
 			// thorax? abdomen??
-			Node newNextNode = getNodeAt(index);
 			Node newPreviousNode = getNodeAt(index - 1);
-			newPreviousNode.setNext(new Node(data, newNextNode));
+			newPreviousNode.setNext(new Node(data, newPreviousNode.getNext().getNext()));
 			length++;
 		}
 		return true;
@@ -64,35 +63,35 @@ public class MyLinkedList implements MyList {
 			removeFromEnd();
 		} else {
 			// thorax? abdomen??
-			Node nodeToRemove = getNodeAt(index);
 			Node nodePreviousToNodeToRemove = getNodeAt(index - 1);
-			nodePreviousToNodeToRemove.setNext(nodeToRemove.getNext());
+			nodePreviousToNodeToRemove.setNext(nodePreviousToNodeToRemove.getNext().getNext());
 			length--;
 		}
 
 		return true;
 	}
 	
-//	public void removeAll(Object o) {
-//		Node node = head;
-//		
-//		for (int i = 0; i < length; i++) {
-//		
-//		}
-//		// probably a for loop is better ??
-//		
-//		while (node.getData() != null) {
-//			if (node == head && node.getData() == o) {
-//				removeFromBeginning();
-//				length--;
-//			} else if (node.getNext().getData() == o) {
-//				
-//				// if in middle, connect previous to next
-//			}
-//				
-//				
-//			}
-//		}
+	public void removeAll(Object o) {
+		// Start at head
+		Node node = head;		
+		
+		while (node.getData() != null) {
+			if (node == head && node.getData() == o) {
+				// Remove head if it has the specified data
+				removeFromBeginning();
+			
+			} else if (node.getNext().getData() == o) {
+				
+				
+				node.setNext(node.getNext().getNext());
+				
+				length--;
+			}
+			
+				
+		}
+		
+	}
 		
 
 	@Override
