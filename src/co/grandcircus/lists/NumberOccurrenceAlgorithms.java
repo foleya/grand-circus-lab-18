@@ -17,6 +17,7 @@ public class NumberOccurrenceAlgorithms {
 	
 	public static void arraySolution(int[] sample) {
 		int[] occurrenceCounter = new int[11];
+		// Estimate: (O)n
 		
 		// Fill the Array
 		Arrays.fill(occurrenceCounter, 0);
@@ -32,6 +33,7 @@ public class NumberOccurrenceAlgorithms {
 	}
 	
 	public static void mapSolution(int[] sample) {
+		// Estimate: (O)n
 		
 		HashMap<Integer, Integer> occurrenceCounter = new HashMap<Integer, Integer>();
 		
